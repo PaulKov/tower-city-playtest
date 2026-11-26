@@ -41,7 +41,8 @@ function routingUrl() {
 }
 
 async function signedOrigin(origin, sig) {
-  if (typeof origin !== 'string' || !/^https:\/\/[a-z0-9-]{1,100}\.trycloudflare\.com$/.test(origin)) return null;
+  if (typeof origin !== 'string' || origin === 'https://api.trycloudflare.com' ||
+      !/^https:\/\/[a-z0-9-]{1,100}\.trycloudflare\.com$/.test(origin)) return null;
   const spki = document.querySelector('meta[name="study-routing-key"]')?.content;
   if (typeof sig !== 'string' || !/^[A-Za-z0-9_-]{86}$/.test(sig) || !spki) return null;
   try {
