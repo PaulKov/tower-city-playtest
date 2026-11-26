@@ -1,0 +1,276 @@
+.district-shell {
+  --district-ink: #293e33;
+  --district-accent: #336747;
+  --district-edge: #d8d2be;
+  display: grid;
+  grid-template-columns: minmax(0, 1.85fr) minmax(250px, 1fr);
+  background: #fffcf3;
+  border: 1px solid var(--district-edge);
+  border-radius: 21px;
+  color: var(--district-ink);
+  overflow: hidden;
+}
+.district-harbor {
+  --district-accent: #286274;
+  --district-ink: #30464b;
+}
+.district-board {
+  min-width: 0;
+  background: #f5f1e2;
+  border-inline-end: 1px solid var(--district-edge);
+  align-self: stretch;
+}
+.district-map {
+  position: relative;
+  aspect-ratio: 600 / 370;
+  isolation: isolate;
+  background: #c1cf99;
+}
+.district-paper {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.district-pin {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  min-width: 31px;
+  height: 31px;
+  padding: 0 5px;
+  border: 2px solid #fff9e6;
+  border-radius: 50% 50% 50% 8px;
+  color: #fffbec;
+  background: #546c49;
+  box-shadow: 1px 3px 2px #3447314d;
+  font:
+    750 14px/1 system-ui,
+    sans-serif;
+}
+.district-pin[aria-pressed='true'] {
+  background: #813e31;
+  outline: 2px solid #813e31;
+}
+.district-harbor .district-pin {
+  background: #426b72;
+}
+.district-harbor .district-pin[aria-pressed='true'] {
+  background: #17586b;
+  outline-color: #17586b;
+}
+.district-legend {
+  display: flex;
+  align-items: center;
+  gap: 9px 18px;
+  flex-wrap: wrap;
+  min-height: 43px;
+  border-block: 1px solid var(--district-edge);
+  padding: 5px clamp(12px, 2vw, 28px);
+  background: #f9f6e9;
+}
+.district-key,
+.district-pause,
+.district-voyage {
+  font:
+    600 12px/1.4 'Segoe UI',
+    system-ui,
+    sans-serif;
+}
+.district-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.district-key::before {
+  content: '';
+  width: 17px;
+  border-top: 2px dotted #a3382d;
+}
+.district-ferry::before {
+  border-top: 2px dashed #13546f;
+}
+.district-cargo::before {
+  border-color: #855025;
+}
+.district-draft::before {
+  border-top: 2px dashed #72537b;
+}
+.district-pause {
+  margin-left: auto;
+  border: 1px solid #c7c8b4;
+  border-radius: 20px;
+  background: #fffcf2;
+  color: var(--district-ink);
+  padding: 4px 12px;
+  min-height: 29px;
+}
+.district-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  gap: 10px clamp(16px, 3.6vw, 65px);
+  padding: 15px clamp(12px, 2vw, 28px);
+}
+.district-metric dt {
+  color: #4e6054;
+  font-size: 12px;
+}
+.district-metric dd {
+  margin: 2px 0 0;
+  font:
+    600 clamp(21px, 2.8vw, 36px)/1.1 Georgia,
+    'Times New Roman',
+    serif;
+  font-variant-numeric: tabular-nums;
+}
+.district-voyage {
+  margin: -5px 0 14px;
+  padding: 0 clamp(12px, 2vw, 28px);
+  color: #44636a;
+  font-variant-numeric: tabular-nums;
+}
+.district-side {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 13px;
+  min-width: 0;
+  padding: clamp(17px, 2.65vw, 39px);
+}
+.district-location {
+  color: var(--district-accent);
+  font-size: 13px;
+  font-weight: 750;
+}
+.district-title {
+  margin: -3px 0 0;
+  font:
+    500 clamp(34px, 4.1vw, 62px)/0.98 Georgia,
+    'Times New Roman',
+    serif;
+  letter-spacing: -0.055em;
+}
+.district-intro {
+  max-width: 42ch;
+  font-size: 15px;
+}
+.district-result {
+  padding: 9px 11px;
+  border-inline-start: 3px solid var(--district-accent);
+  background: #edf0df;
+  font-size: 14px;
+}
+.district-harbor .district-result {
+  background: #e6efea;
+}
+.district-site,
+.district-field legend {
+  font-size: 13px;
+  font-weight: 720;
+}
+.district-field {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.district-field legend {
+  padding: 0;
+  margin-bottom: 5px;
+}
+.district-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.district-choice {
+  border: 1px solid #c3c7b4;
+  border-radius: 9px;
+  min-height: 35px;
+  padding: 5px 10px;
+  color: var(--district-ink);
+  background: #f7f5e9;
+  font-size: 13px;
+  font-weight: 600;
+}
+.district-choice[aria-pressed='true'] {
+  background: #e3edde;
+  border-color: var(--district-accent);
+  box-shadow: inset 0 0 0 1px var(--district-accent);
+}
+.district-harbor .district-choice[aria-pressed='true'] {
+  background: #e0eeeb;
+}
+.district-preview {
+  padding-top: 9px;
+  border-top: 1px solid var(--district-edge);
+  color: #526252;
+  font-size: 13px;
+}
+.district-action {
+  min-height: 45px;
+  border-radius: 11px;
+  padding: 10px 12px;
+  background: var(--district-accent);
+  color: #fffdf4;
+  font-weight: 720;
+  line-height: 1.2;
+}
+.district-shell button:focus-visible {
+  outline: 3px solid #9b4b19;
+  outline-offset: 2px;
+}
+@media (max-width: 780px) {
+  .district-shell {
+    grid-template-columns: 1fr;
+    border-radius: 14px;
+  }
+  .district-board {
+    border-inline-end: 0;
+    border-bottom: 1px solid var(--district-edge);
+  }
+  .district-side {
+    padding: 14px 16px 17px;
+    gap: 9px;
+  }
+  .district-legend {
+    min-height: 35px;
+    padding-block: 3px;
+  }
+  .district-metrics {
+    padding-block: 8px;
+  }
+  .district-metric {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .district-metric dd {
+    font-size: 22px;
+  }
+  .district-title {
+    font-size: 34px;
+  }
+  .district-voyage {
+    margin: 0 0 9px;
+  }
+  .district-intro {
+    max-width: 58ch;
+    font-size: 14px;
+  }
+}
+@media (max-width: 440px) {
+  .district-pin {
+    min-width: 28px;
+    height: 28px;
+  }
+  .district-legend {
+    gap: 7px 10px;
+  }
+  .district-metrics {
+    column-gap: 14px;
+  }
+  .district-metric dd {
+    font-size: 19px;
+  }
+}

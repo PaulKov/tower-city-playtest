@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta name="study-delivery" content="local" />
+    <meta name="study-endpoint" content="https://relocation-attended-careers-romance.trycloudflare.com" />
+    <meta name="study-routing-key" content="MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEe/P3FZasS/XcWZAAplMc7Lzq8oFQP7sB1sfCG8XjCcHgIfSV5A24Xo2iAL2RS6ZOyQU7JhHBvqiLaaNJuxDjyA==" />
+    <meta name="study-routing-url" content="https://gist.githubusercontent.com/PaulKov/f2e14ba62768d5c1a7c0f372a51c45c7/raw/receiver.json" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="theme-color" content="#f5f0e4" />
+    <title>Три способа строить · Башня</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="docs/playtests/slice/pilot.css" />
+    <link rel="stylesheet" href="docs/playtests/slice/district.css" />
+    <link rel="stylesheet" href="docs/playtests/slice/cargo.css" />
+    <link rel="stylesheet" href="docs/playtests/slice/study.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/three/build/three.module.js",
+          "three/addons/": "./vendor/three/addons/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="brand">
+          <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span><strong>Башня</strong>
+        </div>
+        <nav aria-label="Место стройки">
+          <button disabled id="valley">Долина</button><button disabled id="harbor">Гавань</button>
+        </nav>
+      </header>
+      <nav class="mode-tabs" aria-label="Игровые режимы">
+        <a href="?mode=slice" data-mode="slice">Мостик и баржа</a>
+        <a href="?mode=district" data-mode="district">Планировка</a>
+        <a href="?mode=cargo" data-mode="cargo">Мастерская этажей</a>
+      </nav>
+      <p id="study-notice" hidden>
+        <span id="study-disclosure">Стенд анонимно отправляет автору выбор режима и города, начало и результат стройки.</span>
+        <a href="#study-form" id="study-link">Оставить отзыв</a>
+      </p>
+      <section id="selection" hidden></section>
+      <section class="layout" id="building" hidden>
+        <div class="stage">
+          <canvas id="world" tabindex="0" aria-label="Стройплощадка. Нажмите для сброса этажа"></canvas>
+          <div class="stats"><span id="height"></span><span id="lives"></span></div>
+          <div id="notice" role="status">Загрузка стройплощадки…</div>
+        </div>
+        <aside>
+          <div class="brief">
+            <div class="location" id="location"></div>
+            <h1 id="mission"></h1>
+            <p id="brief"></p>
+          </div>
+          <div class="project">
+            <div class="progress-label"><strong id="project-name"></strong><b id="count"></b></div>
+            <div id="pieces" class="pieces" aria-hidden="true"><i></i><i></i><i></i></div>
+            <p id="traffic"></p>
+          </div>
+          <div class="controls">
+            <div class="aim-label"><strong>Точка посадки</strong><span id="aim-end">правый край →</span></div>
+            <canvas id="aim" width="560" height="42" aria-label="Прогноз посадки относительно опоры"></canvas>
+            <p id="guide"></p>
+            <button disabled id="drop" class="action">Сбросить этаж</button
+            ><button id="continue-build" class="secondary" hidden>Продолжить</button
+            ><button id="keep" class="secondary" hidden>Завершить дом сейчас</button>
+            <div id="result" hidden>
+              <button id="again" class="action">Ещё один дом</button
+              ><button id="travel" class="secondary"></button>
+            </div>
+          </div>
+          <p id="record"></p>
+        </aside>
+      </section>
+      <details id="study-details" hidden>
+        <summary>Впечатления от игры <span>· по желанию</span></summary>
+        <form id="study-form">
+          <label for="study-topic">О чём хотите рассказать?</label>
+          <select id="study-topic"></select>
+          <label for="study-text" id="study-question"></label>
+          <textarea id="study-text" rows="2" maxlength="400"></textarea>
+          <button id="study-send" type="submit">Отправить</button>
+        </form>
+        <p id="study-status" role="status"></p>
+      </details>
+      <p id="study-delivery-status" role="status"></p>
+    </main>
+    <script type="module" src="docs/playtests/slice/stand.js"></script>
+  </body>
+</html>
